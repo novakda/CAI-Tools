@@ -997,7 +997,10 @@
                         mes_example: data.character.definition ?? "",
                         personality: data.character.title,
 
-                        metadata: metadata
+                        metadata: {
+                            ...metadata,
+                            source: 'https://www.example.com'
+                        }
                     }
 
                     const Data_FinalForm = JSON.stringify(hybridCharacter);
