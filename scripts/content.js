@@ -983,6 +983,7 @@
 
                 if (downloadType === "cai_character_hybrid") {
                     const hybridCharacter = {
+                        creator: 'somebody@character.ai',
                         char_name: data.character.name,
                         char_persona: data.character.description,
                         char_greeting: data.character.greeting,
