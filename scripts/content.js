@@ -999,6 +999,8 @@
 
                         metadata: {
                             ...metadata,
+                            character_ai_external_id: "mCbLg610VFyQFt9W1vWgCQSBtILJPdOFOWaLhnqnogw",
+                            // https://beta.character.ai/chat2?char=mCbLg610VFyQFt9W1vWgCQSBtILJPdOFOWaLhnqnogw&source=recent-chats
                             source: 'https://www.example.com'
                         }
                     }
