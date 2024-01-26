@@ -1009,7 +1009,7 @@
                     const downloadUrl = URL.createObjectURL(blob);
                     const link = document.createElement('a');
                     link.href = downloadUrl;
-                    link.download = data.character.name.replaceAll(' ', '_') + '.json';
+                    link.download = data.character.name.replaceAll(' ', '_') + '@' + hybridCharacter.creator +  '.json';
                     link.click();
                 }
                 else if (downloadType === "cai_character_card") {
