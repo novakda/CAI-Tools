@@ -709,7 +709,9 @@
         link.click();
     }
 
+    // TODO: can we get username here?
     function DownloadConversation_Tavern(chatData, charName) {
+        console.log('ZZCDATA',)
         const blob = CreateTavernChatBlob(chatData, charName);
         const url = URL.createObjectURL(blob);
         const link = document.createElement('a');
@@ -942,6 +944,8 @@
 
     // CHARACTER DOWNLOAD
 
+
+    // TODO: refactor the hell out of this.
     function DownloadCharacter(args) {
         const fetchUrl = "https://" + getMembership() + ".character.ai/chat/character/";
         const AccessToken = getAccessToken();
@@ -1107,7 +1111,10 @@
                                         const newDataBlob = new Blob([new Uint8Array(combinedData).buffer], { type: 'image/png' });
                                         const link = document.createElement('a');
                                         link.href = URL.createObjectURL(newDataBlob);
-                                        link.download = data.character.name ?? 'character_card.png';
+
+                                        // TODO refactor
+                                        const baseFilename =  data.character.name.replaceAll(' ', '_') + '@' + cardCharacter.creator +  '.png';
+                                        link.download = baseFilename ?? 'character_card.png';
                                         link.click();
                                     };
                                     fileReader.readAsArrayBuffer(canvasBlob);
