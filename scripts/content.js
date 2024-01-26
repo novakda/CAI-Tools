@@ -1022,6 +1022,7 @@
                     }
 
                     const cardCharacter = {
+                        creator: `${data.character.user__username}@character.ai`,
                         name: data.character.name,
                         description: data.character.description,
                         first_mes: data.character.greeting,
