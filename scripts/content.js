@@ -1,4 +1,23 @@
 
+class CAIFetcher {
+
+    #token;
+    
+    constructor (token) {
+        this.#token = token;        
+    }
+
+    get token() {
+        return this.#token;
+    }
+
+    debugMe() {
+        console.log('token is', this.#token)
+    }
+
+
+}
+
 
 (() => {
     // These values must be updated when required
@@ -711,6 +730,11 @@
 
     // TODO: can we get username here?
     function DownloadConversation_Tavern(chatData, charName) {
+
+        const token = getAccessToken()
+        const myFetcher = new CAIFetcher(token)
+        myFetcher.debugMe()
+        
         console.log('ZZCDATA',)
         const blob = CreateTavernChatBlob(chatData, charName);
         const url = URL.createObjectURL(blob);
@@ -1013,7 +1037,7 @@
                     const downloadUrl = URL.createObjectURL(blob);
                     const link = document.createElement('a');
                     link.href = downloadUrl;
-                    link.download = data.character.name.replaceAll(' ', '_') + '@' + hybridCharacter.creator +  '.json';
+                    link.download = data.character.name.replaceAll(' ', '_') + '@' + hybridCharacter.creator + '.json';
                     link.click();
                 }
                 else if (downloadType === "cai_character_card") {
@@ -1113,7 +1137,7 @@
                                         link.href = URL.createObjectURL(newDataBlob);
 
                                         // TODO refactor
-                                        const baseFilename =  data.character.name.replaceAll(' ', '_') + '@' + cardCharacter.creator +  '.png';
+                                        const baseFilename = data.character.name.replaceAll(' ', '_') + '@' + cardCharacter.creator + '.png';
                                         link.download = baseFilename ?? 'character_card.png';
                                         link.click();
                                     };
