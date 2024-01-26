@@ -983,7 +983,7 @@
 
                 if (downloadType === "cai_character_hybrid") {
                     const hybridCharacter = {
-                        creator: `${data.character.user_username}@character.ai`,
+                        creator: `${data.character.user__username}@character.ai`,
                         char_name: data.character.name,
                         char_persona: data.character.description,
                         char_greeting: data.character.greeting,
@@ -1000,8 +1000,7 @@
                         metadata: {
                             ...metadata,
                             character_ai_external_id: "mCbLg610VFyQFt9W1vWgCQSBtILJPdOFOWaLhnqnogw",
-                            // https://beta.character.ai/chat2?char=mCbLg610VFyQFt9W1vWgCQSBtILJPdOFOWaLhnqnogw&source=recent-chats
-                            source: 'https://www.example.com'
+                            source: `https://beta.character.ai/chat2?char=${data.character.external_id}`
                         }
                     }
 
