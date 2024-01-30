@@ -2,6 +2,7 @@
 class CAIFetcher {
 
     #token;
+    #apiUrl
     
     constructor (token) {
         this.#token = token;        
@@ -11,9 +12,25 @@ class CAIFetcher {
         return this.#token;
     }
 
+    set apiUrl(val) {
+        this.#apiUrl = val;
+    }
+
     debugMe() {
         console.log('token is', this.#token)
     }
+
+    async fetchSomething(payload) {{
+        const response = await fetch(this.#apiUrl, {
+            method: "POST",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                "authorization": AccessToken
+            },
+            body: JSON.stringify(payload)
+        })
+    }}
 
 
 }
